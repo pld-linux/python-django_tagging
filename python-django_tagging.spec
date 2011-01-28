@@ -1,5 +1,5 @@
 %define		module		tagging
-Summary:	A generic tagging application for Django projects.
+Summary:	A generic tagging application for Django projects
 Summary(pl.UTF-8):	Aplikacja do obsługi tagów w projektach Django.
 Name:		python-django_tagging
 Version:	0.2.1
