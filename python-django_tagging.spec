@@ -2,31 +2,29 @@
 Summary:	A generic tagging application for Django projects
 Summary(pl.UTF-8):	Aplikacja do obsługi tagów w projektach Django.
 Name:		python-django_tagging
-Version:	0.2.1
+Version:	0.3.1
 Release:	1
 License:	MIT
 Group:		Development/Languages/Python
-Source0:	http://django-tagging.googlecode.com/files/%{module}-%{version}.zip
-# Source0-md5:	478817d8e3f8d062b54b8d9cdaaa00cd
+Source0:	https://django-tagging.googlecode.com/files/django-%{module}-%{version}.tar.gz
+# Source0-md5:	a0855f2b044db15f3f8a025fa1016ddf
 URL:		http://code.google.com/p/django-tagging/
-BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
-# if py_postclean is used
 BuildRequires:	rpmbuild(macros) >= 1.219
-BuildRequires:	unzip
-#%pyrequires_eq	python-libs
-%pyrequires_eq	python-modules
 Requires:	python-django >= 1.0
+Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+A generic tagging application for Django projects, which allows
+association of a number of tags with any Model instance and makes
+retrieval of tags simple.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n django-%{module}-%{version}
 
 %build
-export CFLAGS="%{rpmcflags}"
 %{__python} setup.py build
 
 %install
@@ -35,8 +33,8 @@ rm -rf $RPM_BUILD_ROOT
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
-%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
-%py_comp $RPM_BUILD_ROOT%{py_sitedir}
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}/tests
+
 %py_postclean
 
 %clean
@@ -44,5 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{py_sitescriptdir}/%{module}
-%{py_sitescriptdir}/tagging-%{version}-*.egg-info
+%dir %{py_sitescriptdir}/%{module}
+%{py_sitescriptdir}/%{module}/*.py[co]
+%{py_sitescriptdir}/%{module}/templatetags
+%{py_sitescriptdir}/django_tagging-%{version}-py*.egg-info
