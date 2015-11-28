@@ -3,7 +3,7 @@ Summary:	A generic tagging application for Django projects
 Summary(pl.UTF-8):	Aplikacja do obsługi tagów w projektach Django.
 Name:		python-django_tagging
 Version:	0.3.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Languages/Python
 Source0:	https://django-tagging.googlecode.com/files/django-%{module}-%{version}.tar.gz
