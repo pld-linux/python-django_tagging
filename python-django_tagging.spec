@@ -10,7 +10,7 @@ Source0:	https://django-tagging.googlecode.com/files/django-%{module}-%{version}
 # Source0-md5:	a0855f2b044db15f3f8a025fa1016ddf
 URL:		http://code.google.com/p/django-tagging/
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 Requires:	python-django >= 1.0
 Requires:	python-modules
 BuildArch:	noarch
